@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Code</title>
+    <link rel="icon" href="image/Screenshot_2024-11-03_125410-removebg-preview.png">
+    <link rel="stylesheet" href="editor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="image/Screenshot_2024-11-03_125410-removebg-preview.png" alt="">
+        <span>محرر أكواد ماى كود</span>
+    </header>
+    <div class="flex">
+        <div class="editor">
+            <div>
+                <font size="4">[HTML - CODE]</font><br>
+                <textarea name="" id="html-code"></textarea>
+            </div>
+            <div>
+                <font size="4">[CSS - CODE]</font><br>
+                <textarea name="" id="css-code"></textarea>
+            </div>
+            <div>
+                <font size="4">[JS - CODE]</font><br>
+                <textarea name="" id="js-code"></textarea>
+            </div>
+        </div>
+        <div class="editor-1">
+            <iframe frameborder="0" id="output"></iframe>
+        </div>
+    </div>
+    <script>
+        function run() {
+            let htmlCode = document.getElementById('html-code').value;
+            let cssCode = '<style>' + document.getElementById('css-code').value + '</style>';
+            let jsCode = document.getElementById('js-code').value;
+            let output = document.querySelector('.editor-1 #output');
+            output.contentDocument.body.innerHTML = htmlCode + cssCode;
+            output.contentWindow.eval(jsCode);
+        }
+        document.querySelector('.editor #html-code').addEventListener('keyup',run);
+        document.querySelector('.editor #css-code').addEventListener('keyup',run);
+        document.querySelector('.editor #js-code').addEventListener('keyup',run);
+    </script>
+</body>
+</html>
